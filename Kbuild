@@ -4,7 +4,7 @@ ifeq ($(SPU_ROOT),)
 SPU_ROOT := $(srctree)/techpack/spu
 endif
 
-ifeq ($(CONFIG_QCOM_SPSS), m)
+ifneq (,$(filter $(CONFIG_QCOM_SPSS),y m))
         include $(SPU_ROOT)/config/gki_spu.conf
         LINUXINCLUDE += -include $(SPU_ROOT)/config/gki_spuconf.h
 endif
